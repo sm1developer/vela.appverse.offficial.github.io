@@ -16,47 +16,34 @@ export const HeroContent: React.FC = () => {
       <div className="flex-1 w-full relative flex items-center justify-center perspective-[1000px]">
         
         {/* Background Abstract Glow */}
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] sm:w-[500px] sm:h-[500px] md:w-[700px] md:h-[700px] rounded-full bg-gradient-to-tr from-cyan-900/20 via-purple-900/20 to-amber-900/20 blur-[60px] md:blur-[100px] pointer-events-none"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] sm:w-[500px] sm:h-[500px] md:w-[700px] md:h-[700px] rounded-full bg-gradient-to-tr from-cyan-900/10 via-purple-900/10 to-amber-900/10 blur-[60px] md:blur-[100px] pointer-events-none"></div>
         
-        {/* 3D Structure - "Behind Big" */}
-        {/* We use a wrapper for the float animation to avoid conflicting with the centering transform if possible, or just animate a child */}
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] sm:w-[450px] sm:h-[450px] md:w-[600px] md:h-[600px] z-0 pointer-events-none opacity-60 md:opacity-80">
-            <div className="w-full h-full relative animate-float">
+        {/* 3D Structure - "The Orbital Data Core" */}
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] sm:w-[600px] sm:h-[600px] md:w-[900px] md:h-[900px] z-0 pointer-events-none opacity-60">
+            <div className="w-full h-full relative flex items-center justify-center animate-float">
                 
-                {/* Ring 1 - Outer Dashed Cyan */}
-                <div className="absolute inset-0 flex items-center justify-center" style={{ transform: 'rotateX(70deg)' }}>
-                    <div className="w-full h-full rounded-full border-[1px] border-dashed border-cyan-500/30 animate-[spin_20s_linear_infinite]"></div>
+                {/* Layer 1: The Event Horizon (Massive Outer Ring) */}
+                <div className="absolute inset-0 rounded-full border-[1px] border-white/5 animate-[spin_60s_linear_infinite]">
+                     {/* Scanner Detail */}
+                     <div className="absolute -top-[1px] left-1/2 -translate-x-1/2 w-32 h-[3px] bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent shadow-[0_0_20px_cyan]"></div>
                 </div>
+                
+                {/* Layer 2: The Data Stream (Dashed Tech Ring) */}
+                <div className="absolute inset-[15%] rounded-full border-[1px] border-dashed border-gray-600/50 animate-[spin_40s_linear_infinite_reverse]"></div>
+                
+                {/* Layer 3: Gyroscopic Rings (The Core Mechanics) - Tilted 3D effect */}
+                <div className="absolute inset-[28%] rounded-full border border-cyan-400/20 shadow-[0_0_15px_rgba(34,211,238,0.1)] animate-[spin_8s_linear_infinite] border-t-cyan-400/80 border-l-transparent border-r-transparent border-b-cyan-400/80" style={{ transform: 'rotateX(75deg)' }}></div>
+                
+                <div className="absolute inset-[28%] rounded-full border border-purple-500/20 shadow-[0_0_15px_rgba(168,85,247,0.1)] animate-[spin_12s_linear_infinite_reverse] border-l-purple-400/80 border-t-transparent border-b-transparent border-r-purple-400/80" style={{ transform: 'rotateY(75deg)' }}></div>
 
-                {/* Ring 2 - Large Purple Ellipse */}
-                <div className="absolute inset-[10%] flex items-center justify-center" style={{ transform: 'rotateX(70deg) rotateY(60deg)' }}>
-                    <div className="w-full h-full rounded-full border-[1px] border-purple-500/40 shadow-[0_0_15px_rgba(168,85,247,0.1)] animate-[spin_15s_linear_infinite]"></div>
-                </div>
-
-                {/* Ring 3 - White Tilted Reverse */}
-                <div className="absolute inset-[10%] flex items-center justify-center" style={{ transform: 'rotateX(70deg) rotateY(-60deg)' }}>
-                    <div className="w-full h-full rounded-full border-[1px] border-white/20 animate-[spin_18s_linear_infinite_reverse]"></div>
-                </div>
-
-                {/* Ring 4 - Inner Fast Cyan */}
-                <div className="absolute inset-[25%] flex items-center justify-center" style={{ transform: 'rotateX(80deg)' }}>
-                    <div className="w-full h-full rounded-full border-2 border-cyan-400/20 animate-[spin_8s_linear_infinite]"></div>
-                </div>
-
-                {/* Ring 5 - Vertical Ghost Ring */}
-                <div className="absolute inset-[15%] flex items-center justify-center opacity-30" style={{ transform: 'rotateY(90deg) rotateX(45deg)' }}>
-                    <div className="w-full h-full rounded-full border-[1px] border-dotted border-amber-500/50 animate-[spin_25s_linear_infinite]"></div>
-                </div>
-
-                {/* Central Core */}
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                    {/* Glowing Orb */}
-                    <div className="w-6 h-6 sm:w-10 sm:h-10 bg-white rounded-full shadow-[0_0_40px_white] animate-pulse"></div>
-                    {/* Inner Core detail */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-black rounded-full opacity-50"></div>
-                    {/* Outer glow ring */}
-                    <div className="absolute inset-[-20px] rounded-full bg-cyan-400/10 blur-xl animate-ping"></div>
-                </div>
+                {/* Layer 4: The Tesseract (Central Geometric Cube Simulation) */}
+                {/* Rotating Squares creating a volume illusion */}
+                <div className="absolute w-[20%] h-[20%] border border-white/30 animate-[spin_6s_linear_infinite]"></div>
+                <div className="absolute w-[20%] h-[20%] border border-white/30 animate-[spin_6s_linear_infinite_reverse] rotate-45"></div>
+                <div className="absolute w-[14%] h-[14%] border border-cyan-300/40 animate-[spin_3s_linear_infinite] rotate-12"></div>
+                
+                {/* Ambient Particles */}
+                <div className="absolute inset-[35%] rounded-full border-[1px] border-dotted border-white/10 animate-ping opacity-20"></div>
             </div>
         </div>
 
