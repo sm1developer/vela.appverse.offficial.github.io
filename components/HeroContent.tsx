@@ -3,11 +3,11 @@ import { Mail } from 'lucide-react';
 
 export const HeroContent: React.FC = () => {
   return (
-    <div className="flex flex-col h-full w-full items-center justify-between py-8 px-4 md:py-12 md:px-6 overflow-hidden relative">
+    <div className="flex flex-col h-full w-full items-center justify-between py-8 px-4 md:py-12 md:px-6 overflow-hidden relative cursor-default">
       
       {/* Top Section: VELA Company Name */}
       <div className="flex-none flex items-start justify-center pt-4 md:pt-10 z-20">
-        <h2 className="text-xl md:text-3xl tracking-[0.5em] font-light text-gray-400 opacity-80 uppercase animate-fade-in-down select-none">
+        <h2 className="text-xl md:text-3xl tracking-[0.5em] font-light text-gray-400 opacity-80 uppercase animate-fade-in-down select-none hover:text-white transition-colors duration-500">
           VELA
         </h2>
       </div>
@@ -48,11 +48,11 @@ export const HeroContent: React.FC = () => {
         </div>
 
         {/* Main Brand Highlight - Foreground */}
-        <div className="relative z-10 text-center px-2">
-          <h1 className="font-orbitron text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-b from-white via-gray-200 to-gray-500 animate-glow select-none drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)]">
+        <div className="relative z-10 text-center px-2 group">
+          <h1 className="font-orbitron text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-b from-white via-gray-200 to-gray-500 select-none transition-all duration-700 ease-out group-hover:drop-shadow-[0_0_40px_rgba(34,211,238,0.8)] group-hover:scale-[1.02] group-hover:text-white">
             APPVERSE
           </h1>
-          <p className="mt-4 md:mt-6 text-xs sm:text-sm md:text-lg text-cyan-200/70 tracking-[0.2em] uppercase font-light drop-shadow-lg">
+          <p className="mt-4 md:mt-6 text-xs sm:text-sm md:text-lg text-cyan-200/70 tracking-[0.2em] uppercase font-light drop-shadow-lg transition-all duration-500 group-hover:tracking-[0.4em] group-hover:text-cyan-100">
             Beyond Boundaries
           </p>
         </div>
@@ -64,7 +64,7 @@ export const HeroContent: React.FC = () => {
           <div className="h-px w-8 bg-gray-700 group-hover:w-32 transition-all duration-500"></div>
           <a 
             href="mailto:appverse.official@outlook.com"
-            className="flex items-center gap-2 md:gap-3 text-gray-400 hover:text-white transition-colors duration-300 font-light tracking-wide text-xs sm:text-sm md:text-base p-3 rounded-lg hover:bg-white/5 backdrop-blur-sm active:scale-95 transform"
+            className="flex items-center gap-2 md:gap-3 text-gray-400 hover:text-white transition-colors duration-300 font-light tracking-wide text-xs sm:text-sm md:text-base p-3 rounded-lg hover:bg-white/5 backdrop-blur-sm active:scale-95 transform cursor-pointer"
           >
             <Mail className="w-3 h-3 md:w-4 md:h-4" />
             <span>appverse.official@outlook.com</span>
