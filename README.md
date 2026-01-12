@@ -110,7 +110,7 @@ This license shall be governed by and interpreted under the laws of **[YOUR COUN
 
 All permissions, exceptions, or commercial licensing requests must be made **in writing** to:
 
-**Email:** [appverse.official@outlook.com(mailto:your@email.com)]
+**Email:** [[appverse.official@outlook.com](mailto:your@email.com)]
 **Subject:** License Permission Request – [Project Name]
 
 ---
@@ -118,8 +118,3 @@ All permissions, exceptions, or commercial licensing requests must be made **in 
 ## 12. FINAL CLAUSE
 
 **If you did not receive explicit written permission, you have no rights beyond reading this code.**
-
-
-
-Say the word.
-
