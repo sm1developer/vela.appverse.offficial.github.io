@@ -1,30 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { StarField } from './components/StarField';
 import { HeroContent } from './components/HeroContent';
 
 const App: React.FC = () => {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [isHovering, setIsHovering] = useState(false);
+  const cursorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePos({ x: e.clientX, y: e.clientY });
-    };
-
-    const handleMouseOver = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      if (target.tagName === 'A' || target.tagName === 'BUTTON' || target.closest('a')) {
-        setIsHovering(true);
-      } else {
-        setIsHovering(false);
+    const updateCursor = (e: MouseEvent) => {
+      if (cursorRef.current) {
+        // Direct DOM manipulation avoids React render cycles for smooth 60fps performance
+        cursorRef.current.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
       }
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('mouseover', handleMouseOver);
+    window.addEventListener('mousemove', updateCursor);
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('mouseover', handleMouseOver);
+      window.removeEventListener('mousemove', updateCursor);
     };
   }, []);
 
@@ -32,20 +23,12 @@ const App: React.FC = () => {
     <div className="relative w-full h-screen overflow-hidden bg-black text-white selection:bg-cyan-500 selection:text-black cursor-none">
        {/* Custom Cursor / Spotlight */}
        <div 
-        className="pointer-events-none fixed z-50 transform -translate-x-1/2 -translate-y-1/2 mix-blend-screen transition-all duration-75 ease-out"
-        style={{ 
-          left: mousePos.x, 
-          top: mousePos.y,
-        }}
+        ref={cursorRef}
+        className="pointer-events-none fixed top-0 left-0 z-50 mix-blend-screen will-change-transform"
+        style={{ transform: 'translate(-50%, -50%)' }}
       >
         {/* Main Spotlight */}
         <div className="w-[600px] h-[600px] bg-gradient-to-r from-cyan-500/10 via-blue-500/5 to-transparent rounded-full blur-[80px]"></div>
-        
-        {/* Core Cursor Dot */}
-        <div className={`absolute top-1/2 left-1/2 w-2 h-2 bg-white rounded-full -translate-x-1/2 -translate-y-1/2 shadow-[0_0_10px_rgba(255,255,255,0.8)] transition-all duration-300 ${isHovering ? 'scale-[4] opacity-50 bg-cyan-400' : 'scale-100 opacity-100'}`}></div>
-        
-        {/* Micro-element Orbiting Cursor */}
-        <div className="absolute top-1/2 left-1/2 w-8 h-8 border border-white/20 rounded-full -translate-x-1/2 -translate-y-1/2 animate-[spin_2s_linear_infinite]"></div>
       </div>
 
       {/* Dynamic Background */}
