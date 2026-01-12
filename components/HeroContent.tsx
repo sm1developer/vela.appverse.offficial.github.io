@@ -3,7 +3,7 @@ import { Mail } from 'lucide-react';
 
 export const HeroContent: React.FC = () => {
   return (
-    <div className="flex flex-col h-full w-full items-center justify-between py-8 px-4 md:py-12 md:px-6 overflow-hidden">
+    <div className="flex flex-col h-full w-full items-center justify-between py-8 px-4 md:py-12 md:px-6 overflow-hidden relative">
       
       {/* Top Section: VELA Company Name */}
       <div className="flex-none flex items-start justify-center pt-4 md:pt-10 z-20">
@@ -12,25 +12,43 @@ export const HeroContent: React.FC = () => {
         </h2>
       </div>
 
-      {/* Center Section: Sun & APPVERSE */}
-      <div className="flex-1 flex flex-col items-center justify-center relative w-full">
+      {/* Center Section: 3D Icon & APPVERSE */}
+      <div className="flex-1 w-full relative flex items-center justify-center">
         
-        {/* Abstract Sun Graphic Behind */}
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] sm:w-[400px] sm:h-[400px] md:w-[600px] md:h-[600px] rounded-full bg-gradient-to-tr from-amber-500/20 via-purple-600/10 to-cyan-500/20 blur-[60px] md:blur-[120px] pointer-events-none animate-pulse-slow"></div>
+        {/* Background Abstract Glow */}
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] sm:w-[500px] sm:h-[500px] md:w-[700px] md:h-[700px] rounded-full bg-gradient-to-tr from-cyan-900/20 via-purple-900/20 to-amber-900/20 blur-[60px] md:blur-[100px] pointer-events-none"></div>
         
-        {/* Core Sun Circle (Decorative) */}
-        <div className="w-24 h-24 sm:w-32 sm:h-32 md:w-48 md:h-48 rounded-full bg-gradient-to-b from-white/10 to-transparent border border-white/10 backdrop-blur-sm mb-8 md:mb-12 shadow-[0_0_50px_rgba(255,255,255,0.1)] relative z-0 flex items-center justify-center">
-            <div className="w-16 h-16 sm:w-24 sm:h-24 md:w-36 md:h-36 rounded-full bg-black/80 flex items-center justify-center">
-                 <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-white rounded-full shadow-[0_0_20px_white]"></div>
+        {/* 3D Structure - "Behind Big" */}
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] sm:w-[450px] sm:h-[450px] md:w-[600px] md:h-[600px] z-0 pointer-events-none opacity-50 md:opacity-70">
+            
+            {/* Ring 1 - Cyan */}
+            <div className="absolute inset-0 flex items-center justify-center" style={{ transform: 'rotateX(75deg)' }}>
+                <div className="w-full h-full rounded-full border border-cyan-400/40 shadow-[0_0_15px_rgba(34,211,238,0.2)] animate-[spin_8s_linear_infinite]"></div>
+            </div>
+
+            {/* Ring 2 - Purple */}
+            <div className="absolute inset-0 flex items-center justify-center" style={{ transform: 'rotateX(75deg) rotateY(60deg)' }}>
+                <div className="w-full h-full rounded-full border border-purple-500/40 shadow-[0_0_15px_rgba(168,85,247,0.2)] animate-[spin_12s_linear_infinite]"></div>
+            </div>
+
+            {/* Ring 3 - White/Gray */}
+            <div className="absolute inset-0 flex items-center justify-center" style={{ transform: 'rotateX(75deg) rotateY(-60deg)' }}>
+                <div className="w-full h-full rounded-full border border-white/20 animate-[spin_15s_linear_infinite_reverse]"></div>
+            </div>
+
+            {/* Central Core */}
+             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                <div className="w-4 h-4 sm:w-6 sm:h-6 bg-white rounded-full shadow-[0_0_20px_white] animate-pulse"></div>
+                 <div className="absolute inset-0 w-4 h-4 sm:w-6 sm:h-6 bg-cyan-400 rounded-full blur-md opacity-50 animate-ping"></div>
             </div>
         </div>
 
-        {/* Main Brand Highlight */}
+        {/* Main Brand Highlight - Foreground */}
         <div className="relative z-10 text-center px-2">
-          <h1 className="font-orbitron text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-b from-white via-gray-200 to-gray-500 animate-glow select-none">
+          <h1 className="font-orbitron text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-black tracking-wider text-transparent bg-clip-text bg-gradient-to-b from-white via-gray-200 to-gray-500 animate-glow select-none drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)]">
             APPVERSE
           </h1>
-          <p className="mt-4 md:mt-6 text-xs sm:text-sm md:text-lg text-cyan-200/70 tracking-[0.2em] uppercase font-light">
+          <p className="mt-4 md:mt-6 text-xs sm:text-sm md:text-lg text-cyan-200/70 tracking-[0.2em] uppercase font-light drop-shadow-lg">
             Beyond Boundaries
           </p>
         </div>
